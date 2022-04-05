@@ -1,0 +1,23 @@
+---
+- name: Add Firewall Rules
+  firewalld:
+                    port: 80/tcp
+                    permanent: true
+                    state: enabled
+  tags:
+            - add-fire
+- name: Reload Firewall config for
+  systemd:
+                    name: firewalld
+                    state: reloaded
+
+  tags:
+            - rel-fire
+
+- name: copy Index File to Apache
+  copy:
+                    src: files/index.html
+                    dest: /var/www/html/
+  tags:
+            - cp_file
+

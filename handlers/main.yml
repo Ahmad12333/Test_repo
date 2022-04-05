@@ -1,0 +1,10 @@
+---
+# handlers file for /etc/ansible/roles/nginx
+- name: Restart nginx Service
+  service:
+                    name: nginx
+                    state: restarted
+  tags:
+            - rest_nginx
+
+
